@@ -1,4 +1,4 @@
 $ cat .gitignore
-# exclude everything except directory foo/bar
-.idea
-out/*
+     # exclude everything except directory foo/bar
+     .idea
+     out/*

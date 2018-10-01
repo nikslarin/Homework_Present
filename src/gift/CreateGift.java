@@ -1,15 +1,23 @@
 package gift;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import gift.sweets.*;
 
 public class CreateGift {
 
+
     private static int countSweets (Sweets sweets){
         Scanner scanner = new Scanner(System.in);
-        System.out.print(sweets.getName() + ": ");
-        return scanner.nextInt();
+        try {
+            System.out.print(sweets.getName() + ": ");
+            return scanner.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Exception thrown :" + e + " Вводить только цифры!");
+        }
+        return 0;
     }
+
     public static void main(String[] args) {
 
         Sweets[] sweets = new Sweets[4];
