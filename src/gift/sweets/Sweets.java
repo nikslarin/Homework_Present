@@ -1,6 +1,6 @@
 package gift.sweets;
 
-public abstract class Sweets {
+public class Sweets {
 
     private String name;
     private double weight;

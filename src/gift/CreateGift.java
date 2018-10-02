@@ -1,47 +1,69 @@
 package gift;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import gift.sweets.*;
 
 public class CreateGift {
 
-
-    private static int countSweets (Sweets sweets){
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print(sweets.getName() + ": ");
-            return scanner.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("Exception thrown :" + e + " Вводить только цифры!");
-        }
-        return 0;
-    }
-
     public static void main(String[] args) {
 
-        Sweets[] sweets = new Sweets[4];
-        sweets[0] = new Candy();
-        sweets[1] = new Jellybean();
-        sweets[2] = new Chocolate();
-        sweets[3] = new Cookie();
-
         Present present = new Present();
-
         System.out.println("Введите количество сладостей:");
-        for (int i = 0; i < sweets.length; i++) {
-            int amountSweets = countSweets(sweets[i]);
-            sweets[i].setAmount(amountSweets);
-            present.setTotalPrice(amountSweets, sweets[i].getPrice());
-            present.setTotalWeight(amountSweets, sweets[i].getWeight());
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (scanner.hasNext()) {
+                int amountOfSweets;
+                if (scanner.hasNextInt()) {
+                    amountOfSweets = scanner.nextInt();
+                } else {
+                    System.out.println("Ошибка: Введите число!");
+                    System.out.println("Введите количество сладостей:");
+                    scanner.next();
+                    continue;
+                }
+                if (amountOfSweets < 1) {
+                    System.out.println("Ошибка: Введите хотя бы одну сладость!");
+                    System.out.println("Введите количество сладостей:");
+                    scanner.next();
+                    continue;
+                }
+                try {
+                    for (int i = 0; i < amountOfSweets; i++) {
+                        System.out.println("Введите название сладости, которую хотели бы добавить в подарок:");
+                        String candyName = scanner.next();
+                        switch (candyName.toLowerCase()) {
+                            case "candy":
+                                present.addSweet(new Candy());
+                                break;
+                            case "chocolate":
+                                present.addSweet(new Chocolate());
+                                break;
+                            case "jellybean":
+                                present.addSweet(new Jellybean());
+                                break;
+                            case "cookie":
+                                present.addSweet(new Cookie());
+                                break;
+                            default:
+                                System.out.println("Такой сладости нет!");
+                        }
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    System.out.println("Хотите удалить сладости из подарка? Yes/No:");
+                    Scanner scanner2 = new Scanner(System.in);
+                    String answer = scanner2.next();
+                    if (answer.equals("yes"))
+                        present.deleteSweets();
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+                present.printSweets();
+                present.printPresent();
+            }
         }
-
-        System.out.println("Подарок содержит: ");
-
-        for (int i = 0; i < sweets.length; i++) {
-            System.out.println(sweets[i].getAmount() + "шт. x " + sweets[i].getName() + "(Вес шт.: " + sweets[i].getWeight() + " грамм, Цена за единицу: " + sweets[i].getPrice() + "$)");
-        }
-
-        System.out.println("Итого:\n" + "Общая стоимость: " + present.getTotalPrice() + "$ \n" + "Общий вес подарка: " + present.getTotalWeight() + " грамм.\n");
     }
 }
