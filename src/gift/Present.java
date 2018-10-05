@@ -48,13 +48,16 @@ public class Present {
         System.out.println("Итого:\n" + "Общая стоимость: " + totalPrice + "$ \n" + "Общий вес подарка: " + totalWeight + " грамм.\n");
     }
 
+
     public void deleteSweets() {
         for (ListIterator<Sweets> iter = sweetsList.listIterator(); iter.hasNext();) {
             System.out.println("Хотите удалить " + iter.next().getName() + " ?");
             Scanner scanner3 = new Scanner(System.in);
             String answer2 = scanner3.next();
-            if (answer2.equals("yes"))
+            if (answer2.toLowerCase().equals("yes"))
                 iter.remove();
         }
+
+
     }
 }

@@ -55,7 +55,7 @@ public class CreateGift {
                     System.out.println("Хотите удалить сладости из подарка? Yes/No:");
                     Scanner scanner2 = new Scanner(System.in);
                     String answer = scanner2.next();
-                    if (answer.equals("yes"))
+                    if (answer.toLowerCase().equals("yes"))
                         present.deleteSweets();
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
