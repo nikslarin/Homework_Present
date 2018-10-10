@@ -1,13 +1,14 @@
 package gift.sweets;
 
 
-public class Candy extends Sweets{
+import gift.Special;
 
+@Special(special = "Peach")
+public class Candy extends Sweets {
     private String flavor;
 
     public Candy() {
         super("Candy", 5, 1);
-        this.flavor = "Peach";
+        this.flavor = flavor;
     }
-
 }

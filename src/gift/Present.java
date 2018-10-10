@@ -34,7 +34,8 @@ public class Present {
         System.out.println("Подарок содержит: ");
         for (int i = 0; i < sweetsList.size(); i++) {
             Sweets sweet = sweetsList.get(i);
-            System.out.println("Название сладости: " + sweet.getName() + " (Вес сладости: " + sweet.getWeight() + " грамм" + " Цена сладости: " + sweet.getPrice() + "$)");
+            System.out.println("Название сладости: " + sweet.getName() + " (Вес сладости: " + sweet.getWeight() + " грамм" + " Цена сладости: " + sweet.getPrice() + "$)"
+            + " Особенная характеристика: " + sweet.getClass().getAnnotation(Special.class).special());
         }
     }
 
