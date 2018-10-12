@@ -32,12 +32,24 @@ public class Present {
 
     public void printSweets() {
         System.out.println("Подарок содержит: ");
-        for (int i = 0; i < sweetsList.size(); i++) {
-            Sweets sweet = sweetsList.get(i);
-            System.out.println("Название сладости: " + sweet.getName() + " (Вес сладости: " + sweet.getWeight() + " грамм" + " Цена сладости: " + sweet.getPrice() + "$)"
-            + " Особенная характеристика: " + sweet.getClass().getAnnotation(Special.class).special());
-        }
-    }
+//        for (int i = 0; i < sweetsList.size(); i++) {
+//            Sweets sweet = sweetsList.get(i);
+//            System.out.println("Название сладости: " + sweet.getName() + " (Вес сладости: " + sweet.getWeight() + " грамм" + " Цена сладости: " + sweet.getPrice() + "$")
+//            + " Особенная характеристика: " + sweet.getClass().getAnnotation(Special.class).special());
+//        }
+        sweetsList.stream()
+                .filter(item->item.getName().equals("Candy"))
+                .forEach(item-> System.out.println(("Название сладости: " + "Candy" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+        sweetsList.stream()
+                .filter(item->item.getName().equals("Cookie"))
+                .forEach(item-> System.out.println(("Название сладости: " + "Cookie" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+        sweetsList.stream()
+                .filter(item->item.getName().equals("Jellybean"))
+                .forEach(item-> System.out.println(("Название сладости: " + "Jellybean" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+        sweetsList.stream()
+                .filter(item->item.getName().equals("Chocolate"))
+                .forEach(item-> System.out.println(("Название сладости: " + "Chocolate" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+       }
 
     public void printPresent() {
         for (int i = 0; i < sweetsList.size(); i++) {
