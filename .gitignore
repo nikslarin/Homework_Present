@@ -1,6 +1,6 @@
 $ cat .gitignore
-     # exclude everything except directory foo/bar
-     .idea
-     out/*
-     Classes
-     .git
+# exclude everything except directory foo/bar
+.idea/
+out/*
+Classes/
+.git/
