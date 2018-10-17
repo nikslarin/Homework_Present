@@ -1,0 +1,5 @@
+color:blue
+size:XL
+type:jeans
+price:150$
+location:London

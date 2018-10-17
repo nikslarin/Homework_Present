@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ListOfCreateLead>
+    <Lead Operation="upsert">
+        <IntegrationId>498584766</IntegrationId>
+        <FormId>MICRO_ACCOUNT_REQUEST</FormId>
+        <AnnualTurnovers>1</AnnualTurnovers>
+        <City>Москва</City>
+        <ContactName>Тест</ContactName>
+        <PhoneCode>+7</PhoneCode>
+        <ContactTelephone>9191055594</ContactTelephone>
+        <FullCompanyName>Тест</FullCompanyName>
+        <DataConsentFlag>Y</DataConsentFlag>
+        <OfficeCode>410</OfficeCode>
+        <ListOfOpportunity>
+            <Opportunity>
+                <AccountReservation>Y</AccountReservation>
+                <ProductCode>Current Account</ProductCode>
+                <Currency>RUR</Currency>
+                <LPCCode>CR01</LPCCode>
+                <GPCCode>CA0300</GPCCode>
+                <IsFull>N</IsFull>
+            </Opportunity>
+        </ListOfOpportunity>
+        <ListOfEmailAddress>
+            <EmailAddress>
+                <EmailAddress>nikita.s.larin@raiffeisen.ru</EmailAddress>
+            </EmailAddress>
+        </ListOfEmailAddress>
+        <InstittutionCode>12</InstittutionCode>
+        <CBC>Y</CBC>
+        <IsResident>Y</IsResident>
+        <INN>1881267265</INN>
+        <GoogleClientId>316819631.1404823685</GoogleClientId>
+        <IsFull>N</IsFull>
+        <ListOfAcquisitionChannel/>
+    </Lead>
+</ListOfCreateLead>

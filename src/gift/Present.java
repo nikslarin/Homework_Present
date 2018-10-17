@@ -3,6 +3,7 @@ package gift;
 import gift.sweets.Sweets;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Present {
 
@@ -16,6 +17,7 @@ public class Present {
     }
 
     private List<Sweets> sweetsList = new ArrayList<>();
+
 
     public void addSweet(Sweets sweets) {
         sweetsList.add(sweets);
@@ -38,18 +40,28 @@ public class Present {
 //            + " Особенная характеристика: " + sweet.getClass().getAnnotation(Special.class).special());
 //        }
         sweetsList.stream()
-                .filter(item->item.getName().equals("Candy"))
-                .forEach(item-> System.out.println(("Название сладости: " + "Candy" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+                .filter(item -> item.getName().equals("Candy"))
+                .forEach(item -> System.out.println(("Название сладости: " + "Candy" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
         sweetsList.stream()
-                .filter(item->item.getName().equals("Cookie"))
-                .forEach(item-> System.out.println(("Название сладости: " + "Cookie" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+                .filter(item -> item.getName().equals("Cookie"))
+                .forEach(item -> System.out.println(("Название сладости: " + "Cookie" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
         sweetsList.stream()
-                .filter(item->item.getName().equals("Jellybean"))
-                .forEach(item-> System.out.println(("Название сладости: " + "Jellybean" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+                .filter(item -> item.getName().equals("Jellybean"))
+                .forEach(item -> System.out.println(("Название сладости: " + "Jellybean" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
         sweetsList.stream()
-                .filter(item->item.getName().equals("Chocolate"))
-                .forEach(item-> System.out.println(("Название сладости: " + "Chocolate" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
-       }
+                .filter(item -> item.getName().equals("Chocolate"))
+                .forEach(item -> System.out.println(("Название сладости: " + "Chocolate" + " (Вес сладости: " + item.getWeight() + " грамм" + " Цена сладости: " + item.getPrice() + "$)")));
+
+//        List<Sweets> comulat = new ArrayList<>();
+//
+//        Map<String, List<Sweets>> map =
+//                sweetsList.stream().collect(Collectors.groupingBy(item -> (item.getName())));
+//        map.entrySet().stream().forEach(e -> {
+//            int w = e.getValue().stream().mapToInt(Sweets::getWeight).sum();
+//            comulat.add(new Sweets(e.getKey(), w, 0));
+//        });
+
+    }
 
     public void printPresent() {
         for (int i = 0; i < sweetsList.size(); i++) {
@@ -63,7 +75,7 @@ public class Present {
 
 
     public void deleteSweets() {
-        for (ListIterator<Sweets> iter = sweetsList.listIterator(); iter.hasNext();) {
+        for (ListIterator<Sweets> iter = sweetsList.listIterator(); iter.hasNext(); ) {
             System.out.println("Хотите удалить " + iter.next().getName() + " ?");
             Scanner scanner3 = new Scanner(System.in);
             String answer2 = scanner3.next();
